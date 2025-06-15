@@ -6,6 +6,7 @@ import { Provider as PaperProvider } from 'react-native-paper'
 
 import Home from './src/pages/Home';
 import Login from './src/pages/Login';
+import CriarConta from './src/pages/CriarConta';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,13 +25,18 @@ export default function App() {
           <Stack.Screen
             name='Login'
             component={Login}
-            options={{ title: 'Login' }}
           />
 
           <Stack.Screen
             name='Home'
             component={Home}
             options={{ title: 'Home' }}
+          />
+
+          <Stack.Screen
+            name='Cadastro de cliente'
+            component={CriarConta}
+            options={{ title: 'Cadastro de clientes' }}
           />
 
         </Stack.Navigator>
