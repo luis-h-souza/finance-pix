@@ -7,6 +7,7 @@ import { Provider as PaperProvider } from 'react-native-paper'
 import Home from './src/pages/Home';
 import Login from './src/pages/Login';
 import CriarConta from './src/pages/CriarConta';
+import Splash from './src/pages/Splash';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,21 +17,34 @@ const opcoesTela = {
   headerTitleStyle: { fontWeight: 'bold', fontSize: 24 }
 }
 
+const opcoesTelaHome = {
+  headerStyle: { backgroundColor: '#087F5B' },
+  headerTintColor: '#FFFF',
+  headerTitleStyle: { fontWeight: 'bold', fontSize: 24 },
+}
+
 export default function App() {
   return (
     <PaperProvider>
       <NavigationContainer>
-        <Stack.Navigator inicialRouteName='Login' screenOptions={opcoesTela}>
+        <Stack.Navigator inicialRouteName='Splash' screenOptions={opcoesTela}>
+
+          <Stack.Screen
+            name='Splash'
+            component={Splash}
+            options={{ headerShown: false }}
+          />
 
           <Stack.Screen
             name='Login'
             component={Login}
+            options={{ headerShown: false }}
           />
 
           <Stack.Screen
             name='Home'
             component={Home}
-            options={{ title: 'Home' }}
+            options={opcoesTelaHome}
           />
 
           <Stack.Screen
