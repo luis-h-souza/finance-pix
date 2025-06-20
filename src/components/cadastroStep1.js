@@ -1,8 +1,23 @@
 import React from 'react';
 import { View, Text, Button, TextInput } from 'react-native';
+import { Feather } from '@expo/vector-icons'
 import styles from '../components/Style'
 
-export default function Step1({ onNext, formData, setFormData }) {
+// Supondo que Feather.glyphMap seja um objeto:
+const iconNames = Object.keys(Feather.glyphMap);
+
+// Para verificar se um valor está entre as chaves:
+function isValidIcon(icon) {
+  return iconNames.includes(icon);
+}
+
+// Exemplo de uso:
+const props = { icon: "home" };
+if (isValidIcon(props.icon)) {
+  // use props.icon
+}
+
+export default function Step1({ onNext, formData, setFormData, icon }) {
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };

@@ -36,7 +36,7 @@ export default function CadastroSteps({ navigation }) {
     <View style={styles.container}>
       {renderStep()}
       <View style={styles.navigation}>
-        {currentStep > 1 && <Button title="Finalizar" onPress={() => {navigation.navigate('Login')}} />}
+        {currentStep > 1 && <Button style={styles.btn} title="Finalizar" onPress={() => {navigation.navigate('Login')}} />}
       </View>
     </View>
   );
