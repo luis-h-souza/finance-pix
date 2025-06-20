@@ -8,12 +8,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     backgorundColor: '#F8F9FA',
   },
-  loginLogo: { 
-    width: 152,
-    height: 48,
+  containerSplash: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#087F5B'
+  },
+  loginLogo: {
     resizeMode: 'contain',
     marginTop: 132,
     marginBottom: 64
+  },
+  logoSplash: {
+    resizeMode: 'contain'
   },
   h2: {
     fontSize: 24,
