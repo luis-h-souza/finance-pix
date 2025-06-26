@@ -52,6 +52,7 @@ export function FormStepThree() {
           onSubmitEditing: () => passwordConfirmationRef.current?.focus(),
           returnKeyType: "next",
           secureTextEntry: true,
+          returnKeyType: "next"
         }}
         name="password"
       />
@@ -72,6 +73,7 @@ export function FormStepThree() {
           placeholder: "Confirmar a senha",
           onSubmitEditing: handleSubmit(handleNextStep),
           secureTextEntry: true,
+          returnKeyType: "done"
         }}
         name="passwordConfirmation"
       />

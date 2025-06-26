@@ -59,7 +59,7 @@ export function Login({ navigation }) {
         name="password"
       />
 
-      <Button title={'Entrar'} />
+      <Button title={'Entrar'} onPress={() => navigation.navigate('Home')} />
 
       <Pressable style={{ marginTop: 24 }}>
         <Text style={styles.textLink}>Esqueceu a senha ?</Text>

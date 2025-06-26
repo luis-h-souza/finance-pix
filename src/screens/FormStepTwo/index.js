@@ -37,7 +37,7 @@ export function FormStepTwo() {
             required: "A data de nascimento é obrigatória",
             pattern: {
               value: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/,
-              message: "Data inválida",
+              message: "Data inválida - 00/00/0000",
             },
           },
         }}
@@ -66,6 +66,8 @@ export function FormStepTwo() {
         }}
         inputProps={{
           placeholder: "(XX) XXXXX-XXXX",
+          keyboardType: "number-pad",
+          returnKeyType: "next",
           onSubmitEditing: handleSubmit(handleNextStep),
         }}
         name="phone"

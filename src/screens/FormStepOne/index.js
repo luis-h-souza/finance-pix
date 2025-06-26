@@ -56,13 +56,15 @@ export function FormStepOne() {
           rules: {
             required: "O e-mail é obrigatório",
             pattern: {
-              value: /^[A-z0-9._%+-]+@[A-z0-9.-]+\.[a-z]+\.([a-z]+)?$/i,
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+(\.[a-zA-Z]+)?$/i,
               message: "E-mail inválido",
             },
           },
         }}
         inputProps={{
           placeholder: "E-mail",
+          keyboardType: "email-address",
+          returnKeyType: "next",
           onSubmitEditing: handleSubmit(handleNextStep),
         }}
       />

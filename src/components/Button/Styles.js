@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     gap: 16
   },
   buttonSteps: {
-    height: 56,
+    height: 64,
     width: '100%',
     backgroundColor: '#087F5B',
     borderRadius: 16,
@@ -28,10 +28,9 @@ export const styles = StyleSheet.create({
     shadowRadius: 3.84
   },
   titleBtnSteps: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: '700',
     lineHeight: 24,
-    letterSpacing: -0.5,
     color: '#FFFF'
   },
 
