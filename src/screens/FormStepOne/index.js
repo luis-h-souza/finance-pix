@@ -3,10 +3,12 @@ import { View, Text } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useFormContext } from "react-hook-form";
 
-import { styles } from "./Style";
 import { Input } from "../../components/Input/index";
 import { Button } from "../../components/Button/BtnForm";
 import { Progress } from "../../components/Progress/index";
+import Feather from '@expo/vector-icons/Feather';
+
+import { styles } from "./Style";
 
 export function FormStepOne() {
   const { navigate } = useNavigation();
@@ -69,7 +71,9 @@ export function FormStepOne() {
         }}
       />
 
-      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} />
+      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
+        <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps}/>
+      </Button>
     </View>
   );
 }

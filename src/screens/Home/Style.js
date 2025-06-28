@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'start',
     backgorundColor: '#F8F9FA',
+    paddingHorizontal: 24,
   },
   h1: {
     fontSize: 24,
@@ -37,7 +38,7 @@ export const styles = StyleSheet.create({
     color: '#FFFFFF'
   },
   saldo: {
-    minWidth: 344,
+    minWidth: '100%',
     height: 70,
     marginTop: 24,
     backgroundColor: '#087F5B',
@@ -62,17 +63,15 @@ export const styles = StyleSheet.create({
     marginRight: 24
   },
   bodyTitle: {
-    minWidth: 344,
+    minWidth: '100%',
     marginBlock: 20,
     paddingStart: 8,
     justifyContent: 'flex-start',
   },
   cards: {
     flexDirection: 'row',
-    minWidth: 344,
+    minWidth: '100%',
     height: 70,
-    borderWidth: 1,
-    borderColor: '#D9D9D9',
     borderRadius: 16,
     alignItems: 'center',
     boxShadow: '2px 2px 4px 0 #ADB5BD',
@@ -90,10 +89,9 @@ export const styles = StyleSheet.create({
     marginEnd: 44
   },
   hr: {
-    width: 350,
+    minWidth: '100%',
     height: 1,
     marginTop: 40,
     backgroundColor: 'rgba(173, 181, 189, 0.3)',
   },
-
 })

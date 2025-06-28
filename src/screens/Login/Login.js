@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View, TextInput, Image, Pressable } from "react-native";
 import { useForm } from "react-hook-form";
+import Feather from '@expo/vector-icons/Feather';
 
 import { styles } from './Style';
 
-import { Button } from '../../components/Button/BtnForm'
+
 import { Input } from "../../components/Input";
 
 export function Login({ navigation }) {
@@ -59,7 +60,9 @@ export function Login({ navigation }) {
         name="password"
       />
 
-      <Button title={'Entrar'} onPress={() => navigation.navigate('Home')} />
+      <Pressable title="Entrar" style={styles.button} onPress={() => navigation.navigate('Home')}>
+        <Text style={styles.titleBtn}>Entrar</Text>
+      </Pressable>
 
       <Pressable style={{ marginTop: 24 }}>
         <Text style={styles.textLink}>Esqueceu a senha ?</Text>

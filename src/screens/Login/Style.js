@@ -31,4 +31,30 @@ export const styles = StyleSheet.create({
     letterSpacing: -0.5,
     color: '#087F5B'
   },
+  button: {
+    height: 64,
+    width: '100%',
+    backgroundColor: '#087F5B',
+    borderRadius: 16,
+    marginTop: 24,
+    paddingVertical: 16,
+    boxShadow: '2px 4px 4px 0 #ADB5BD',
+    shadowColor: '#ADB5BD',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  titleBtn: {
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#FFFF',
+  },
 });

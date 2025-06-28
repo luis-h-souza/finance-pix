@@ -1,7 +1,6 @@
 import { forwardRef } from "react";
 import { TextInput, View, Text } from "react-native";
 import { Controller } from "react-hook-form";
-import clsx from "clsx";
 
 import { styles } from "./Styles";
 

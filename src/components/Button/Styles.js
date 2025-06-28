@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#087F5B',
     borderRadius: 16,
     marginTop: 24,
-    paddingHorizontal: 16,
+    paddingHorizontal: 24,
     paddingVertical: 16,
     alignItems: 'center',
     justifyContent: 'center',
@@ -25,13 +25,15 @@ export const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84
+    shadowRadius: 3.84,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   titleBtnSteps: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '700',
     lineHeight: 24,
     color: '#FFFF'
   },
-
 });

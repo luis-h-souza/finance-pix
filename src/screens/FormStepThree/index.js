@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { styles } from "../FormStepOne/Style";
 import { validatePasswordConfirmation } from "../../utils/validatePassword";
 
+import Feather from '@expo/vector-icons/Feather';
 import { Input } from "../../components/Input/index";
 import { Button } from "../../components/Button/BtnForm";
 import { Progress } from "../../components/Progress/index";
@@ -78,7 +79,10 @@ export function FormStepThree() {
         name="passwordConfirmation"
       />
 
-      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} />
+      <Button title="Enviar" onPress={handleSubmit(handleNextStep)} >
+        <Feather name="send" size={24} color="#FFF" styles={styles.buttonSteps}/>
+      </Button>
+
     </View>
   );
 }

@@ -4,6 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { useNavigation } from "@react-navigation/native";
 
 import { styles } from "../FormStepOne/Style";
+import Feather from '@expo/vector-icons/Feather';
 
 import { Input } from "../../components/Input/index";
 import { Button } from "../../components/Button/BtnForm";
@@ -73,7 +74,9 @@ export function FormStepTwo() {
         name="phone"
       />
 
-      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} />
+      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
+        <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps}/>
+      </Button>
     </View>
   );
 }
