@@ -1,11 +1,12 @@
 import React from "react";
 import { ScrollView, Text, View, Image } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons'
 
 import { Header } from '../../components/Header/Header'
 
 import { styles } from "./Style";
 
-export function Home({ navigation, title }) {
+export function Home({ navigation }) {
 
   return (
     <ScrollView
@@ -13,7 +14,7 @@ export function Home({ navigation, title }) {
       style={styles.scrollView}
     >
 
-      <Header />
+      <Header title={'HOME'}/>
       <View style={styles.container}>
 
         <View style={styles.saldo}>

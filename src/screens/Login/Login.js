@@ -5,7 +5,6 @@ import Feather from '@expo/vector-icons/Feather';
 
 import { styles } from './Style';
 
-
 import { Input } from "../../components/Input";
 
 export function Login({ navigation }) {
@@ -60,7 +59,7 @@ export function Login({ navigation }) {
         name="password"
       />
 
-      <Pressable title="Entrar" style={styles.button} onPress={() => navigation.navigate('Home')}>
+      <Pressable title="Entrar" style={styles.button} onPress={() => navigation.navigate('MainTabs')}>
         <Text style={styles.titleBtn}>Entrar</Text>
       </Pressable>
 
