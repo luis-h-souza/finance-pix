@@ -48,7 +48,7 @@ export function CustomTabBar({ state, descriptors, navigation }) {
               onLongPress={onLongPress}
               style={styles.buttonTab}
             >
-              <View style={{ alignItems: 'center', padding: 4 }}>
+              <View style={{ alignItems: 'center', padding: 6 }}>
                 {/* Ícone da aba, muda de cor se estiver selecionada */}
                 <View style={[
                   styles.buttonBackground,

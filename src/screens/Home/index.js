@@ -9,64 +9,63 @@ import { styles } from "./Style";
 export function Home({ navigation }) {
 
   return (
-    <ScrollView
-      contentContainerStyle={styles.scrollContainer}
-      style={styles.scrollView}
-    >
+    <View style={{ flex: 1 }}>
+      <Header title={'Luis Henrique'} />
 
-      <Header title={'HOME'}/>
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        style={styles.scrollView}
+      >
 
-        <View style={styles.saldo}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image source={require('../../../assets/icon/showEye.png')} style={styles.eye} />
-            <Text style={styles.h2}>Saldo</Text>
+        <View style={styles.container}>
+
+          <View style={styles.saldo}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Image source={require('../../../assets/icon/showEye.png')} style={styles.eye} />
+              <Text style={styles.h2}>Saldo</Text>
+            </View>
+            <View style={{ flexDirection: 'row', alignItems: 'end' }}>
+              <Text style={styles.h2}>R$ xxx,xx</Text>
+            </View>
           </View>
-          <View style={{ flexDirection: 'row', alignItems: 'end' }}>
-            <Text style={styles.h2}>R$ xxx,xx</Text>
+
+          <View style={styles.hr}></View>
+
+          <View style={styles.cards}>
+            <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
+            <Text style={[styles.h2, { color: '#212529' }]}>Enviar Pix</Text>
           </View>
+
+          <View style={[styles.cards, { marginTop: 16 }]}>
+            <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
+            <Text style={[styles.h2, { color: '#212529' }]}>Receber Pix</Text>
+          </View>
+
+          <View style={[styles.cards, { marginTop: 16 }]}>
+            <Image source={require('../../../assets/icon/chaves.png')} style={styles.iconCard} />
+            <Text style={[styles.h2, { color: '#212529' }]}>Minhas chaves Pix</Text>
+          </View>
+
+          <View style={[styles.cards, { marginTop: 16 }]}>
+            <Image source={require('../../../assets/icon/historico.png')} style={styles.iconCard} />
+            <Text style={[styles.h2, { color: '#212529' }]}>Histórico</Text>
+          </View>
+
+          <View style={styles.hr}></View>
+
+          <View style={[styles.bodyTitle, { marginBottom: 4 }]}>
+            <Text style={styles.h1}>
+              Favoritos
+            </Text>
+          </View>
+
+          <View style={[styles.cards, { marginTop: 16 }]}>
+            <Image source={require('../../../assets/icon/h.png')} style={styles.iconCard} />
+            <Text style={[styles.h2, { color: '#212529' }]}>Salvar chaves</Text>
+          </View>
+
         </View>
-
-        <View style={styles.bodyTitle}>
-          <Text style={styles.h1}>
-            Área de transações
-          </Text>
-        </View>
-
-        <View style={styles.cards}>
-          <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
-          <Text style={[styles.h2, { color: '#212529' }]}>Enviar Pix</Text>
-        </View>
-
-        <View style={[styles.cards, { marginTop: 16 }]}>
-          <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
-          <Text style={[styles.h2, { color: '#212529' }]}>Receber Pix</Text>
-        </View>
-
-        <View style={[styles.cards, { marginTop: 16 }]}>
-          <Image source={require('../../../assets/icon/chaves.png')} style={styles.iconCard} />
-          <Text style={[styles.h2, { color: '#212529' }]}>Minhas chaves Pix</Text>
-        </View>
-
-        <View style={[styles.cards, { marginTop: 16 }]}>
-          <Image source={require('../../../assets/icon/historico.png')} style={styles.iconCard} />
-          <Text style={[styles.h2, { color: '#212529' }]}>Histórico</Text>
-        </View>
-
-        <View style={styles.hr}></View>
-
-        <View style={[styles.bodyTitle, { marginBottom: 4 }]}>
-          <Text style={styles.h1}>
-            Favoritos
-          </Text>
-        </View>
-
-        <View style={[styles.cards, { marginTop: 16 }]}>
-          <Image source={require('../../../assets/icon/h.png')} style={styles.iconCard} />
-          <Text style={[styles.h2, { color: '#212529' }]}>Salvar chaves</Text>
-        </View>
-
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   )
 }

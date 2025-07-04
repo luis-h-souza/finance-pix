@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
   input: {
     backgroundColor: '#FFFFFF',
     paddingHorizontal: 20,
-    minWidth: '100%',
+    width: '100%',
     height: 56,
     overflow: 'hidden',
     borderRadius: 12,

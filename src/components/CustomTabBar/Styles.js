@@ -30,7 +30,7 @@ export const styles = StyleSheet.create({
   },
   buttonBackground: {
     padding: 8,
-    borderRadius: '51%',
+    borderRadius: 99,
     justifyContent: 'center',
     alignItems: 'center',
   }

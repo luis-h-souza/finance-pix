@@ -19,31 +19,26 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84
   },
+  content: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 24
+  },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 700,
     color: '#FFFFFF',
-    letterSpacing: 1,
     marginStart: 40,
-    paddingTop: 20
   },
-  greeting: {
-    flexDirection: 'collumn',
-    marginEnd: 40,
+  buttonUser: {
+    width: 44,
+    height: 44,
+    backgroundColor: 'rgba(255,255,255, 0.5)',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 20
-  },
-  circle: {
-    width: 40,
-    height: 40,
-    borderRadius: 100,
-    backgroundColor: '#FFFFFF',
-    marginBottom: 2
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: -0.5,
-    color: '#FFFFFF'
+    borderRadius: 44 / 2,
+    marginEnd: 40,
   },
 })

@@ -11,7 +11,7 @@ import { Input } from "../../components/Input/index";
 import { Button } from "../../components/Button/BtnForm";
 import { Progress } from "../../components/Progress/index";
 
-export function FormStepThree() {
+export function FormStepThree({ style }) {
   const { navigate } = useNavigation();
   const {
     control,
@@ -20,67 +20,148 @@ export function FormStepThree() {
     getValues,
   } = useFormContext();
 
-  const passwordConfirmationRef = useRef(null);
-
-  function handleNextStep(data) {
-    console.log(data);
-    navigate("Login");
+  function handleNextStep() {
+    navigate("formStepFour");
   }
 
-  const passwordConfirmationValidator = validatePasswordConfirmation(getValues);
+  const addressRef = useRef(null);
 
   return (
     <View style={styles.container}>
-      <Progress progress={100} />
-      <Text style={styles.h2}>Escolha sua senha</Text>
+      <Progress progress={75} />
+      <Text style={styles.h2}>Endereço:</Text>
 
       <Input
-        icon="key"
-        error={String(errors?.password?.message || "")}
+        error={String(errors?.street?.message || "")}
         formProps={{
           control,
-          name: "password",
+          name: "street",
           rules: {
-            required: "A senha é obrigatória.",
-            minLength: {
-              value: 6,
-              message: "A senha deve ter pelo menos 6 caracteres.",
+            required: "O nome da rua é obrigatória.",
+          },
+        }}
+        inputProps={{
+          placeholder: "Rua",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
+        }}
+        name="street"
+      />
+
+      <Input
+        error={String(errors?.number?.message || "")}
+        formProps={{
+          control,
+          name: "number",
+          rules: {
+            required: "O número da casa é obrigatória.",
+          },
+        }}
+        inputProps={{
+          placeholder: "Número",
+          keyboardType: "numeric",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
+          styles: { maxWidth: 100 }
+        }}
+        name="number"
+      />
+
+      <Input
+        error={String(errors?.location?.message || "")}
+        formProps={{
+          control,
+          name: "location",
+          rules: {
+            required: "O bairro é obrigatória.",
+          },
+        }}
+        inputProps={{
+          placeholder: "Bairro",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
+        }}
+        name="location"
+      />
+
+      <Input
+        error={String(errors?.cep?.message || "")}
+        formProps={{
+          control,
+          name: "cep",
+          rules: {
+            required: "O CEP é obrigatória.",
+            pattern: {
+              value: /^\d{5}-?\d{3}$/,
+              message: "CEP inválido - formato inválido",
             },
           },
         }}
         inputProps={{
-          placeholder: "Senha",
-          onSubmitEditing: () => passwordConfirmationRef.current?.focus(),
+          placeholder: "CEP - xx.xxx-xxx",
+          onSubmitEditing: () => addressRef.current?.focus(),
           returnKeyType: "next",
-          secureTextEntry: true,
-          returnKeyType: "next"
         }}
-        name="password"
+        name="cep"
       />
 
       <Input
-        error={String(errors?.passwordConfirmation?.message || "")}
-        ref={passwordConfirmationRef}
-        icon="key"
+        error={String(errors?.city?.message || "")}
         formProps={{
           control,
-          name: "passwordConfirmation",
+          name: "city",
           rules: {
-            required: "A confirmação de senha é obrigatória.",
-            validate: passwordConfirmationValidator,
+            required: "O nome da cidade é obrigatória.",
           },
         }}
         inputProps={{
-          placeholder: "Confirmar a senha",
-          onSubmitEditing: handleSubmit(handleNextStep),
-          secureTextEntry: true,
-          returnKeyType: "done"
+          placeholder: "Cidade",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
         }}
-        name="passwordConfirmation"
+        name="city"
       />
 
-      <Button title="Enviar" onPress={handleSubmit(handleNextStep)} >
-        <Feather name="send" size={24} color="#FFF" styles={styles.buttonSteps}/>
+      <Input
+        error={String(errors?.state?.message || "")}
+        formProps={{
+          control,
+          name: "state",
+          rules: {
+            required: "O nome do estado é obrigatória.",
+            maxLength: {
+              value: 2,
+              message: "O estado deve ter no máximo 2 caracteres.",
+            }
+          },
+        }}
+        inputProps={{
+          placeholder: "Estado - XX",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
+        }}
+        name="state"
+      />
+
+      <Input
+        error={String(errors?.country?.message || "")}
+        formProps={{
+          control,
+          name: "country",
+          rules: {
+            required: "O nome do país é obrigatória.",
+          },
+        }}
+        inputProps={{
+          placeholder: "País",
+          onSubmitEditing: () => addressRef.current?.focus(),
+          returnKeyType: "next",
+        }}
+        name="country"
+      />
+
+      <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
+        <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps} />
       </Button>
 
     </View>

@@ -43,19 +43,19 @@ export const styles = StyleSheet.create({
     marginTop: 24,
     backgroundColor: '#087F5B',
     borderRadius: 16,
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 32,
-    elevation: 12,
+    flexDirection: 'row',
     boxShadow: '2px 2px 4px 0 #ADB5BD',
-    shadowColor: '#ADB5BD',
+    elevation: 10,
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84
+    shadowOpacity: 0.2,
+    shadowRadius: 3.80, // Sombra iOS
   },
   eye: {
     width: 40,
@@ -64,7 +64,8 @@ export const styles = StyleSheet.create({
   },
   bodyTitle: {
     minWidth: '100%',
-    marginBlock: 20,
+    marginBottom: 16,
+    marginTop: 24,
     paddingStart: 8,
     justifyContent: 'flex-start',
   },
@@ -72,6 +73,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     minWidth: '100%',
     height: 70,
+    marginTop: 32,
     borderRadius: 16,
     alignItems: 'center',
     boxShadow: '2px 2px 4px 0 #ADB5BD',

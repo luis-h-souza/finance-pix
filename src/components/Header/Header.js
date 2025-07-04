@@ -1,13 +1,16 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Feather } from '@expo/vector-icons'
 import { styles } from "./Style";
 
-export function Header({title}) {
+export function Header({ title }) {
   return (
     <View style={styles.header}>
-      <Text style={styles.title}>{title}</Text>
-      <View style={styles.greeting}>
-        <View style={styles.circle}></View>
-        <Text style={styles.text}>Olá, Luis!</Text>
+      <View style={styles.content}>
+
+        <Text style={styles.title}>{title}</Text>
+        <TouchableOpacity activeOpacity={0.9} style={styles.buttonUser}>
+          <Feather name="user" size={28} color="#FFF" />
+        </TouchableOpacity>
       </View>
     </View>
   )

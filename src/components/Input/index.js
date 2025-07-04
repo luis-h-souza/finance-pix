@@ -4,7 +4,7 @@ import { Controller } from "react-hook-form";
 
 import { styles } from "./Styles";
 
-const Input = forwardRef(({ icon, formProps, inputProps, error = '', style }, ref) => {
+const Input = forwardRef(({ formProps, inputProps, error = '', style }, ref) => {
   return (
     <Controller
       render={({ field }) => (
@@ -15,8 +15,10 @@ const Input = forwardRef(({ icon, formProps, inputProps, error = '', style }, re
               ref={ref}
               value={field.value}
               onChangeText={field.onChange}
-              style={[styles.input, style]}
+              // style={[styles.input, style]}
               {...inputProps}
+              style={[styles.input, inputProps?.style]}
+
             />
           </View>
 

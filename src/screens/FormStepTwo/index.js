@@ -26,28 +26,33 @@ export function FormStepTwo() {
 
   return (
     <View style={styles.container}>
-      <Progress progress={66} />
-      <Text style={styles.h2}>Suas informações</Text>
+      <Progress progress={55} />
+      <Text style={styles.h2}>Seus dados:</Text>
 
       <Input
-        error={String(errors?.birth?.message || "")}
+        error={String(errors?.cpf?.message || "")}
         formProps={{
           control,
-          name: "birth",
+          name: "cpf",
           rules: {
-            required: "A data de nascimento é obrigatória",
+            required: "O CPF é obrigatório",
+            maxLength: {
+              value: 14,
+              message: "O CPF deve ter 11 caracteres.",
+            },
             pattern: {
-              value: /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/,
-              message: "Data inválida - 00/00/0000",
+              value: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/,
+              message: "CPF inválido - formato inválido",
             },
           },
         }}
         inputProps={{
-          placeholder: "dd/mm/aaaa",
+          placeholder: "xxx.xxx.xxx-xx",
+          keyboardType: "number-pad",
           onSubmitEditing: () => phoneRef.current?.focus(),
           returnKeyType: "next",
         }}
-        name="birth"
+        name="cpf"
       />
 
       <Input
@@ -75,7 +80,7 @@ export function FormStepTwo() {
       />
 
       <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
-        <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps}/>
+        <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps} />
       </Button>
     </View>
   );

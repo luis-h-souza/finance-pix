@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#087F5B',
     borderRadius: 16,
     marginTop: 24,
-    paddingHorizontal: 24,
+    paddingHorizontal: 32,
     paddingVertical: 16,
     alignItems: 'center',
     justifyContent: 'center',
@@ -34,6 +34,6 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '700',
     lineHeight: 24,
-    color: '#FFFF'
+    color: '#FFFF',
   },
 });
