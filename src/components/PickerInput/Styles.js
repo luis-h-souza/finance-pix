@@ -6,38 +6,20 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F4f5f6",
     justifyContent: "center",
     padding: 24,
-    gap: 12
+    gap: 16
   },
-  h2: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    lineHeight: 32,
-    letterSapcing: 1,
-    color: '#212529',
-    marginTop: 16,
-  },
-  subtitle: {
-    fontSize: 18,
-    fontWeight: '500'
-  },
-  group: {
-    height: 56,
+  containerError: {
     width: '100%',
-    backgroundColor: '#FFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    overflow: 'hidden',
-    borderRadius: 8,
-  },
-  control: {
-    flex: 1,
-    paddingLeft: 16,
-    fontSize: 16
+    marginBottom: 8,
   },
   error: {
     color: '#DC1637',
     fontSize: 14,
-    marginTop: 8,
+    fontStyle: 'italic',
+    marginStart: 16
+  },
+  containerInput: {
+    width: '100%',
   },
   input: {
     backgroundColor: '#FFFFFF',
@@ -58,4 +40,4 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84
   },
-});
+})

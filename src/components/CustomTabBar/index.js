@@ -52,7 +52,7 @@ export function CustomTabBar({ state, descriptors, navigation }) {
                 {/* Ícone da aba, muda de cor se estiver selecionada */}
                 <View style={[
                   styles.buttonBackground,
-                  { backgroundColor: isFocused ? "#C7F0E3" : "transparent" }
+                  { backgroundColor: isFocused ? "#C7F0E3" : 'rgba(255,255,255,0.9)' }
                 ]}>
                   <MaterialIcons
                     name={options.tabBarIcon}
