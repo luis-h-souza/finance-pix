@@ -1,9 +1,8 @@
-import { Image, ScrollView, Text, View } from "react-native"
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
 import { Header } from "../../components/Header/Header"
 import { styles } from "../Home/Style"
 
-export function Transaction({ title }) {
-  console.log('transaction')
+export function Transaction({ navigation }) {
 
   return (
     <ScrollView
@@ -25,9 +24,24 @@ export function Transaction({ title }) {
         </View>
 
         <View style={styles.bodyTitle}>
-          <Text style={styles.h1}>
-            Área de transfêrencia
+          <Text style={[styles.h1, { fontSize: 20, fontWeight: '600', color: '#212529' }]}>
+            Realize suas transações de forma rápida e fácil
           </Text>
+
+          <TouchableOpacity onPress={() => navigation.navigate('SendPix')}>
+            <View style={[styles.cards, { marginTop: 44, height: 80 }]}>
+              <Image source={require('../../../assets/icon/pix.png')} style={[styles.iconCard, { width: 54, height: 54 }]} />
+              <Text style={[styles.h1, { color: '#212529' }]}>Enviar Pix</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('ReceivePix')}>
+            <View style={[styles.cards, { marginTop: 44, height: 80 }]}>
+              <Image source={require('../../../assets/icon/pix.png')} style={[styles.iconCard, { width: 54, height: 54 }]} />
+              <Text style={[styles.h1, { color: '#212529' }]}>Receber Pix</Text>
+            </View>
+          </TouchableOpacity>
+
         </View>
       </View>
     </ScrollView>

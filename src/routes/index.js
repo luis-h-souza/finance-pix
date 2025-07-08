@@ -9,6 +9,8 @@ import { Home } from "../screens/Home";
 import { Transaction } from "../screens/Pix/Pix";
 import { CustomTabBar } from "../components/CustomTabBar"
 import { ConfigAccount } from "../screens/ConfigAccount/ConfigAccount";
+import { SendPix } from "../screens/SendPix/SendPix";
+import { ReceivePix } from "../screens/ReceivePix/ReceivePix";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,6 +47,8 @@ export function Routes() {
           <Stack.Screen name="LoginStack" component={LoginRoutes} />
           <Stack.Screen name="AccountStack" component={AccountRoutes} />
           <Stack.Screen name="MainTabs" component={MainTabs} />
+          <Stack.Screen name="SendPix" component={SendPix} />
+          <Stack.Screen name="ReceivePix" component={ReceivePix} />
         </Stack.Navigator>
       </FormProvider>
     </NavigationContainer>

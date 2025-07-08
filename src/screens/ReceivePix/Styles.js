@@ -2,12 +2,12 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   scrollContainer: {
-    flexGrow: 1, // Permite que o conteúdo cresça e se ajuste à altura do ScrollView
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   scrollView: {
-    flex: 1, // Ocupa toda a altura da tela
+    flex: 1,
   },
   container: {
     flex: 1,
@@ -16,34 +16,6 @@ export const styles = StyleSheet.create({
     justifyContent: 'start',
     backgorundColor: '#F8F9FA',
     paddingHorizontal: 24,
-  },
-  h1: {
-    fontSize: 24,
-    fontWeight: 700,
-    lineHeight: 32,
-    letterSapcing: 1,
-    color: '#212529'
-  },
-  h2: {
-    fontSize: 22,
-    fontWeight: 700,
-    lineHeight: 32,
-    letterSapcing: 1,
-    color: '#FFFFFF'
-  },
-  h3: {
-    marginVertical: 16,
-    fontSize: 16,
-    fontWeight: 700,
-    lineHeight: 24,
-    letterSpacing: -0.5,
-    color: '#212529',
-  },
-  text: {
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: -0.5,
-    color: '#FFFFFF'
   },
   saldo: {
     minWidth: '100%',
@@ -69,6 +41,11 @@ export const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginRight: 24
+  },
+  h2: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: '#FFFFFF',
   },
   bodyTitle: {
     minWidth: '100%',
@@ -96,12 +73,27 @@ export const styles = StyleSheet.create({
     width: 48,
     height: 48,
     marginStart: 32,
-    marginEnd: 44
+    marginEnd: 32
   },
   hr: {
     minWidth: '100%',
     height: 1,
-    marginTop: 40,
+    marginVertical: 24,
     backgroundColor: 'rgba(173, 181, 189, 0.3)',
+  },
+  iconBackground: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: 'rgba(8, 127, 91, 0.8)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginEnd: 32,
+    marginStart: 32,
+  },
+    h1: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#212529'
   },
 })

@@ -79,7 +79,6 @@ export function FormStepTwo() {
               placeholder: "CPF - xxx.xxx.xxx-xx",
               keyboardType: "number-pad",
               maxLength: 14,
-              autoFocus: true,
               onSubmitEditing: () => phoneRef.current?.focus(),
               returnKeyType: "next",
             }}

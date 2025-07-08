@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View, Image } from "react-native";
+import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 
 import { Header } from '../../components/Header/Header'
@@ -31,15 +31,19 @@ export function Home({ navigation }) {
 
           <View style={styles.hr}></View>
 
-          <View style={styles.cards}>
-            <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
-            <Text style={[styles.h2, { color: '#212529' }]}>Enviar Pix</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate('SendPix')}>
+            <View style={styles.cards}>
+              <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
+              <Text style={[styles.h2, { color: '#212529' }]}>Enviar Pix</Text>
+            </View>
+          </TouchableOpacity>
 
-          <View style={[styles.cards, { marginTop: 16 }]}>
-            <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
-            <Text style={[styles.h2, { color: '#212529' }]}>Receber Pix</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.navigate('ReceivePix')}>
+            <View style={[styles.cards, { marginTop: 16 }]}>
+              <Image source={require('../../../assets/icon/pix.png')} style={styles.iconCard} />
+              <Text style={[styles.h2, { color: '#212529' }]}>Receber Pix</Text>
+            </View>
+          </TouchableOpacity>
 
           <View style={[styles.cards, { marginTop: 16 }]}>
             <Image source={require('../../../assets/icon/chaves.png')} style={styles.iconCard} />
