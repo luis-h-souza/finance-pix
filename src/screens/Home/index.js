@@ -1,12 +1,21 @@
-import React from "react";
 import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
-import { MaterialIcons } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { Header } from '../../components/Header/Header'
-
+import { Saldo } from '../../components/Saldo/Saldo';
 import { styles } from "./Style";
 
 export function Home({ navigation }) {
+
+  const storeData = async (key, value) => {
+    try {
+      await AsyncStorage.setItem(key, value);
+      console.log(key, value);
+      console.log('Data saved successfully!');
+    } catch (error) {
+      console.error('Error saving data:', error);
+    }
+  };
 
   return (
     <View style={{ flex: 1 }}>
@@ -19,15 +28,7 @@ export function Home({ navigation }) {
 
         <View style={styles.container}>
 
-          <View style={styles.saldo}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Image source={require('../../../assets/icon/showEye.png')} style={styles.eye} />
-              <Text style={styles.h2}>Saldo</Text>
-            </View>
-            <View style={{ flexDirection: 'row', alignItems: 'end' }}>
-              <Text style={styles.h2}>R$ xxx,xx</Text>
-            </View>
-          </View>
+          <Saldo />
 
           <View style={styles.hr}></View>
 

@@ -3,6 +3,7 @@ import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
 import { styles } from "./Styles"
 import { Header } from "../../components/Header/Header"
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Saldo } from "../../components/Saldo/Saldo";
 
 export function ReceivePix({ navigation }) {
 
@@ -15,15 +16,7 @@ export function ReceivePix({ navigation }) {
       <Header title={'Receber Pix'} />
       <View style={styles.container}>
 
-        <View style={styles.saldo}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image source={require('../../../assets/icon/showEye.png')} style={styles.eye} />
-            <Text style={styles.h2}>Saldo</Text>
-          </View>
-          <View style={{ flexDirection: 'row', alignItems: 'end' }}>
-            <Text style={styles.h2}>R$ xxx,xx</Text>
-          </View>
-        </View>
+        <Saldo />
 
         <View style={styles.bodyTitle}>
           <Text style={styles.h1}>

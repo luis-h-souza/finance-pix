@@ -90,6 +90,7 @@ export function FormStepOne() {
           <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
             <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps}/>
           </Button>
+          
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

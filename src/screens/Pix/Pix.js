@@ -1,6 +1,7 @@
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
 import { Header } from "../../components/Header/Header"
 import { styles } from "../Home/Style"
+import { Saldo } from "../../components/Saldo/Saldo"
 
 export function Transaction({ navigation }) {
 
@@ -13,15 +14,7 @@ export function Transaction({ navigation }) {
       <Header title={'PIX'} />
       <View style={styles.container}>
 
-        <View style={styles.saldo}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Image source={require('../../../assets/icon/showEye.png')} style={styles.eye} />
-            <Text style={styles.h2}>Saldo</Text>
-          </View>
-          <View style={{ flexDirection: 'row', alignItems: 'end' }}>
-            <Text style={styles.h2}>R$ xxx,xx</Text>
-          </View>
-        </View>
+        <Saldo />
 
         <View style={styles.bodyTitle}>
           <Text style={[styles.h1, { fontSize: 20, fontWeight: '600', color: '#212529' }]}>

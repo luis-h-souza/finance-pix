@@ -32,31 +32,18 @@ export function FormStepFour() {
   const passwordConfirmationRef = useRef(null);
 
   function handleNextStep(data) {
-    console.log(data);
+
+    console.log('Dados do formulário:', data);
 
     const register = async () => {
       try {
         const response = await clienteApi.post(
-          "/",
+          "/", data,
           {
             headers: {
               'id-bank': '9',
               'Content-Type': 'application/json'
             }
-          },
-          {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            phone: data.phone,
-            cpf: data.cpf,
-            street: data.street,
-            number: data.number,
-            location: data.location,
-            cep: data.cep,
-            city: data.city,
-            state: data.state,
-            country: data.country,
           }
         );
         console.log('Resposta da API:', response);
@@ -85,8 +72,8 @@ export function FormStepFour() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView
-        contentContainerStyle={[styles.container, { paddingTop: 72 }]}
-        keyboardShouldPersistTaps="handled">
+          contentContainerStyle={[styles.container, { paddingTop: 72 }]}
+          keyboardShouldPersistTaps="handled">
           <Progress progress={100} />
           <Text style={styles.h2}>Escolha sua senha</Text>
 
@@ -137,6 +124,7 @@ export function FormStepFour() {
           <Button title="Enviar" onPress={handleSubmit(handleNextStep)} >
             <Feather name="send" size={24} color="#FFF" styles={styles.buttonSteps} />
           </Button>
+
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
