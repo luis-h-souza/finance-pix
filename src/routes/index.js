@@ -11,6 +11,7 @@ import { CustomTabBar } from "../components/CustomTabBar"
 import { ConfigAccount } from "../screens/ConfigAccount/ConfigAccount";
 import { SendPix } from "../screens/SendPix/SendPix";
 import { ReceivePix } from "../screens/ReceivePix/ReceivePix";
+import { TokenProvider, AuthContext } from '../contexts/AuthContext';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -30,9 +31,9 @@ function MainTabs() {
       }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: 'home' }}/>
-      <Tab.Screen name="Pix" component={Transaction} options={{ tabBarIcon: 'pix' }}/>
-      <Tab.Screen name="ConfigAccount" component={ConfigAccount} options={{ tabBarIcon: 'settings' }}/>
+      <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: 'home' }} />
+      <Tab.Screen name="Pix" component={Transaction} options={{ tabBarIcon: 'pix' }} />
+      <Tab.Screen name="ConfigAccount" component={ConfigAccount} options={{ tabBarIcon: 'settings' }} />
     </Tab.Navigator>
   );
 }
@@ -41,16 +42,18 @@ export function Routes() {
   const methods = useForm();
 
   return (
-    <NavigationContainer>
-      <FormProvider {...methods}>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="LoginStack" component={LoginRoutes} />
-          <Stack.Screen name="AccountStack" component={AccountRoutes} />
-          <Stack.Screen name="MainTabs" component={MainTabs} />
-          <Stack.Screen name="SendPix" component={SendPix} />
-          <Stack.Screen name="ReceivePix" component={ReceivePix} />
-        </Stack.Navigator>
-      </FormProvider>
-    </NavigationContainer>
+    <TokenProvider>
+      <NavigationContainer>
+        <FormProvider {...methods}>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="LoginStack" component={LoginRoutes} />
+            <Stack.Screen name="AccountStack" component={AccountRoutes} />
+            <Stack.Screen name="MainTabs" component={MainTabs} />
+            <Stack.Screen name="SendPix" component={SendPix} />
+            <Stack.Screen name="ReceivePix" component={ReceivePix} />
+          </Stack.Navigator>
+        </FormProvider>
+      </NavigationContainer>
+    </TokenProvider>
   );
 }
