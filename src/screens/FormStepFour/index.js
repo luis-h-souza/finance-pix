@@ -93,7 +93,7 @@ export function FormStepFour() {
             }}
             inputProps={{
               placeholder: "Senha",
-              onSubmitEditing: () => passwordConfirmationRef.current?.focus(),
+              onSubmitEditing: () => passwordConfirmationRef.current?.blur(),
               returnKeyType: "next",
               secureTextEntry: true,
             }}
@@ -114,7 +114,7 @@ export function FormStepFour() {
             }}
             inputProps={{
               placeholder: "Confirmar a senha",
-              onSubmitEditing: handleSubmit(handleNextStep),
+              onSubmitEditing: handleSubmit(handleNextStep).dismiss(),
               secureTextEntry: true,
               returnKeyType: "done"
             }}

@@ -58,7 +58,7 @@ export function FormStepOne() {
             }}
             inputProps={{
               placeholder: "Nome",
-              onSubmitEditing: () => emailRef.current?.focus(),
+              onSubmitEditing: () => emailRef.current?.blur(),
               returnKeyType: "next",
             }}
           />
@@ -90,7 +90,7 @@ export function FormStepOne() {
           <Button title="Continuar" onPress={handleSubmit(handleNextStep)} >
             <Feather name="arrow-right" size={24} color="#FFF" styles={styles.buttonSteps}/>
           </Button>
-          
+
         </ScrollView>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

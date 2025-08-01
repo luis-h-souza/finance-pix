@@ -1,17 +1,20 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-import { LoginRoutes } from "./login.routes";
-import { AccountRoutes } from "./account.routes";
 import { FormProvider, useForm } from "react-hook-form";
+import { TokenProvider, AuthContext } from '../contexts/AuthContext';
+
+import { AccountRoutes } from "./account.routes";
+import { LoginRoutes } from "./login.routes";
+
 import { Home } from "../screens/Home";
 import { Transaction } from "../screens/Pix/Pix";
-import { CustomTabBar } from "../components/CustomTabBar"
-import { ConfigAccount } from "../screens/ConfigAccount/ConfigAccount";
+import { HistoryAccount } from "../screens/HistoryAccount/HistoryAccount";
 import { SendPix } from "../screens/SendPix/SendPix";
 import { ReceivePix } from "../screens/ReceivePix/ReceivePix";
-import { TokenProvider, AuthContext } from '../contexts/AuthContext';
+import { ConfigAccount } from "../screens/ConfigAccount/ConfigAccount";
+
+import { CustomTabBar } from "../components/CustomTabBar"
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -33,7 +36,7 @@ function MainTabs() {
     >
       <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: 'home' }} />
       <Tab.Screen name="Pix" component={Transaction} options={{ tabBarIcon: 'pix' }} />
-      <Tab.Screen name="ConfigAccount" component={ConfigAccount} options={{ tabBarIcon: 'settings' }} />
+      <Tab.Screen name="HistoryAccount" component={HistoryAccount} options={{ tabBarIcon: 'settings' }} />
     </Tab.Navigator>
   );
 }

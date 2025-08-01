@@ -99,7 +99,7 @@ export function FormStepThree() {
                 }}
                 inputProps={{
                   placeholder: "Rua",
-                  onSubmitEditing: () => addressRef.current?.focus(),
+                  onSubmitEditing: () => addressRef.current?.blur(),
                   returnKeyType: "next",
                 }}
                 name="street"
@@ -156,7 +156,7 @@ export function FormStepThree() {
                   placeholder: "CEP",
                   keyboardType: "numeric",
                   maxLength: 10,
-                  onSubmitEditing: () => addressRef.current?.focus(),
+                  onSubmitEditing: () => addressRef.current?.blur(),
                   returnKeyType: "next",
                 }}
                 mask={text => applyMask(text, "cep")}

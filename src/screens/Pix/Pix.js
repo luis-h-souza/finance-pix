@@ -17,9 +17,11 @@ export function Transaction({ navigation }) {
         <Saldo />
 
         <View style={styles.bodyTitle}>
-          <Text style={[styles.h1, { fontSize: 20, fontWeight: '600', color: '#212529' }]}>
+          <Text style={[styles.h1, { fontSize: 16, fontWeight: '600', color: '#212529', marginBottom: 0 }]}>
             Realize suas transações de forma rápida e fácil
           </Text>
+
+          <View style={[styles.hr, { marginTop: 16, marginBottom: 16 }]}></View>
 
           <TouchableOpacity onPress={() => navigation.navigate('SendPix')}>
             <View style={[styles.cards, { marginTop: 44, height: 80 }]}>

@@ -79,7 +79,7 @@ export function FormStepTwo() {
               placeholder: "CPF - xxx.xxx.xxx-xx",
               keyboardType: "number-pad",
               maxLength: 14,
-              onSubmitEditing: () => phoneRef.current?.focus(),
+              onSubmitEditing: () => phoneRef.current?.blur(),
               returnKeyType: "next",
             }}
             mask={applyMask}
