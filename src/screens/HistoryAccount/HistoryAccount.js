@@ -1,26 +1,14 @@
-import { ActivityIndicator, FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { useContext, useEffect, useState } from "react";
-
 import { AuthContext } from "../../contexts/AuthContext";
 import { transacaoApi } from "../../services/Api";
+import { Header } from "../../components/Header/Header";
+import { styles } from "./Styles";
 
-import { Header } from "../../components/Header/Header"
-
-import { styles } from "../Home/Style"
-import { set } from "react-hook-form";
-
-export function HistoryAccount({ title }) {
+export function HistoryAccount({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [transacoes, setTransacoes] = useState([]);
-
-  const [valor, setValor] = useState('');
-  const [dataHora, setDataHora] = useState('');
-  const [pagadorName, setPagadorName] = useState('');
-  const [recebedorName, setRecebedorName] = useState('');
-  const [bancoPagador, setBancoPagador] = useState('');
-  const [bancoRecebedor, setBancoRecebedor] = useState('');
-
   const { token, idClient, isLoading } = useContext(AuthContext);
 
   useEffect(() => {
@@ -32,93 +20,62 @@ export function HistoryAccount({ title }) {
       }
       setLoading(true);
       try {
-        const response = await transacaoApi.get(`/${idClient}`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              "id-bank": "9",
-              Authorization: `Bearer ${token}`,
-              "id-client": idClient,
-            },
-          });
-        console.log(response.data)
-        // setValor(response.data.valor);
-        // setDataHora(response.data.dataHora);
-        // setPagadorName(response.data.pagadorName);
-        // setRecebedorName(response.data.recebedorName);
-        // setBancoPagador(response.data.bancoPagador);
-        // setBancoRecebedor(response.data.bancoRecebedor);
+        const response = await transacaoApi.get(`/${idClient}`, {
+          headers: {
+            "Content-Type": "application/json",
+            "id-bank": "9",
+            Authorization: `Bearer ${token}`,
+            "id-client": idClient,
+          },
+        });
         setTransacoes(response.data);
-        console.log(transacoes);
         setLoading(false);
-
       } catch (error) {
         console.error("Erro ao carregar dados:", error.message);
+        setError(error.message);
         setLoading(false);
       }
     };
     if (!isLoading) {
       historyInfo();
     }
-
-  }, [token, idClient, isLoading]);
+  }, [token, idClient, isLoading, navigation]);
 
   const renderItem = ({ item }) => (
-    <View style={styles.container}>
-      <Text style={styles.title}>Transação #{item.id_transacao}</Text>
-      <Text>Pagador: {item.pagador_name}</Text>
-      <Text>Recebedor: {item.recebedor_name}</Text>
-      <Text>Valor: R${parseFloat(item.valor).toFixed(2)}</Text>
-      <Text>Data: {new Date(item.data_hora).toLocaleString()}</Text>
-      <Text>Banco Pagador: {item.banco_pagador}</Text>
-      <Text>Banco Recebedor: {item.banco_recebedor}</Text>
-      <Text>Status: {item.status === 1 ? 'Concluído' : 'Pendente'}</Text>
+    <View style={styles.card}>
+      <Text style={[styles.cardText, styles.title]}>Transação #{item.id_transacao}</Text>
+      <Text style={[styles.cardText, styles.pagador]}>Pagador: {item.pagador_name}</Text>
+      <Text style={[styles.cardText, styles.recebedor]}>Recebedor: {item.recebedor_name}</Text>
+      <Text style={styles.cardText}>Valor: R${parseFloat(item.valor).toFixed(2)}</Text>
+      <Text style={styles.cardText}>Data: {new Date(item.data_hora).toLocaleString()}</Text>
+      <Text style={styles.cardText}>Banco Pagador: {item.banco_pagador}</Text>
+      <Text style={styles.cardText}>Banco Recebedor: {item.banco_recebedor}</Text>
+      <Text style={styles.cardText}>
+        Status: {item.status === 1 ? "Concluído" : "Pendente"}
+      </Text>
     </View>
   );
+
 
   if (loading) return <ActivityIndicator size="large" color="#0000ff" />;
   if (error) return <Text style={styles.error}>Erro: {error}</Text>;
 
   return (
-    <View style={{ flex: 1 }}>
-      <Header title={'Extrato'} />
+    <View>
+      <Header title={'EXTRATO'} />
 
-    {/* arrumar o container / cards */}
-      <View style={[styles.container, { marginTop: 44, height: 80 }]}>
-        <FlatList
-          data={transacoes}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id_transacao.toString()}
-          ListEmptyComponent={<Text>Nenhuma transação encontrada.</Text>}
-        />
+      <View style={styles.bodyTitle}>
+        <Text style={styles.title}>Histórico de transações</Text>
+        <View style={[styles.hr, { marginTop: 16, marginBottom: 16 }]} />
       </View>
 
-      <ScrollView
+      <FlatList
+        data={transacoes}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id_transacao.toString()}
+        ListEmptyComponent={<Text style={styles.empty}>Nenhuma transação encontrada.</Text>}
         contentContainerStyle={styles.scrollContainer}
-        style={styles.scrollView}
-      >
-
-        <View style={styles.container}>
-
-          <View style={styles.bodyTitle}>
-            <Text style={styles.h1}>
-              Histórico de transações
-            </Text>
-
-            <View style={[styles.hr, { marginTop: 16, marginBottom: 16 }]}></View>
-
-            {/* <View style={[styles.cards, { marginTop: 44, height: 80 }]}>
-              <FlatList
-                data={transacoes}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id_transacao.toString()}
-                ListEmptyComponent={<Text>Nenhuma transação encontrada.</Text>}
-              />
-            </View> */}
-
-          </View>
-        </View>
-      </ScrollView>
+      />
     </View>
-  )
+  );
 }

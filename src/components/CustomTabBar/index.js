@@ -1,5 +1,6 @@
 import { TouchableOpacity, View } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { styles } from "../CustomTabBar/Styles";
 
 export function CustomTabBar({ state, descriptors, navigation }) {

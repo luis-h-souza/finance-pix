@@ -30,7 +30,7 @@ export function Home({ navigation }) {
               "id-client": idClient,
             },
           });
-          console.log(response.data)
+        console.log(response.data)
 
         if (response.data && response.data.name) {
           setName(response.data.name);
@@ -73,6 +73,7 @@ export function Home({ navigation }) {
               <Text style={[styles.h2, { color: "#212529" }]}>Enviar Pix</Text>
             </View>
           </TouchableOpacity>
+
           <TouchableOpacity onPress={() => navigation.navigate("ReceivePix")}>
             <View style={[styles.cards, { marginTop: 16 }]}>
               <Image
@@ -82,6 +83,7 @@ export function Home({ navigation }) {
               <Text style={[styles.h2, { color: "#212529" }]}>Receber Pix</Text>
             </View>
           </TouchableOpacity>
+
           <View style={[styles.cards, { marginTop: 16 }]}>
             <Image
               source={require("../../../assets/icon/chaves.png")}
@@ -91,13 +93,17 @@ export function Home({ navigation }) {
               Minhas chaves Pix
             </Text>
           </View>
-          <View style={[styles.cards, { marginTop: 16 }]}>
-            <Image
-              source={require("../../../assets/icon/historico.png")}
-              style={styles.iconCard}
-            />
-            <Text style={[styles.h2, { color: "#212529" }]}>Histórico</Text>
-          </View>
+
+          <TouchableOpacity onPress={() => navigation.navigate("HistoryAccount")}>
+            <View style={[styles.cards, { marginTop: 16 }]}>
+              <Image
+                source={require("../../../assets/icon/historico.png")}
+                style={styles.iconCard}
+              />
+              <Text style={[styles.h2, { color: "#212529" }]}>Histórico</Text>
+            </View>
+          </TouchableOpacity>
+
           <View style={styles.hr}></View>
           <View style={[styles.bodyTitle, { marginBottom: 4 }]}>
             <Text style={styles.h1}>Favoritos</Text>

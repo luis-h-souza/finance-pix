@@ -11,11 +11,6 @@ export const TokenProvider = ({ children }) => {
   useEffect(() => {
     const getAuth = async () => {
       try {
-        console.log("Iniciando recuperação de token e id_client");
-        // Atraso de 1 segundo para depuração
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        console.log("Iniciando recuperação de token e id_client");
-
         const token = await AsyncStorage.getItem("token");
         const idClient = await AsyncStorage.getItem("id_client");
         console.log("Token recuperado:", token, "ID Client:", idClient);

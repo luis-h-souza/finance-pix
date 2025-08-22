@@ -36,7 +36,7 @@ function MainTabs() {
     >
       <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: 'home' }} />
       <Tab.Screen name="Pix" component={Transaction} options={{ tabBarIcon: 'pix' }} />
-      <Tab.Screen name="HistoryAccount" component={HistoryAccount} options={{ tabBarIcon: 'settings' }} />
+      <Tab.Screen name="HistoryAccount" component={HistoryAccount} options={{ tabBarIcon: 'compare-arrows' }} />
     </Tab.Navigator>
   );
 }
