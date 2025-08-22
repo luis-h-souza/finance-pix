@@ -61,7 +61,6 @@ export const styles = StyleSheet.create({
     color: "#228B22",
   },
   // Empty state text
-  
   empty: {
     fontSize: 16,
     lineHeight: 24,
